@@ -8,15 +8,20 @@ const App = () => {
   const [showEmoji, setShowEmoji] = useState([]);
 
   const getInputValue = (e) => {
-
-        for (let i = 0; i < data.length; i++) {
-              if(data[i].keywords.includes(e.target.value)) {
-                if(showEmoji.includes(data[i].symbol)){
-                  continue;
-                }else{
-                  setShowEmoji([...showEmoji, data[i].symbol])
+        console.log(e.target.value);
+        if (e.target.value !== " "){
+          for (let i = 0; i < data.length; i++) {
+                if(data[i].keywords.includes(e.target.value)) {
+                  if(showEmoji.includes(data[i].symbol)){
+                    continue;
+                  }else{
+                    setShowEmoji([...showEmoji, data[i].symbol])
+                  }
                 }
-              }
+          }
+        }
+        else{
+          setShowEmoji([])
         }
 
       console.log(showEmoji);
